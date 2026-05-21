@@ -20,3 +20,28 @@ Membresía inválida
 IDs repetidos
 
 Cliente no registrado
+
+## Funcionalidad
+
+El programa permite administrar la información principal de un gimnasio:
+
+- clientes
+- entrenadores
+- membresías
+- rutinas
+
+Consta de un menú con opciones iniciales y corre sobre consola.
+
+## Consideraciones
+
+El programa solo corre en la consola y está hecho con C++ standard, por lo que puede correr en todos los sistemas operativos.
+
+Casos donde el proyecto podría dejar de funcionar:
+
+- registrar un cliente con edad menor o igual a 0
+- registrar peso o altura negativos
+- calcular el IMC con altura igual a 0
+- asignar una rutina inexistente
+- asignar una membresía inexistente
+- registrar dos personas con el mismo ID
+- registrar un entrenador sin especialidad

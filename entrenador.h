@@ -55,7 +55,7 @@ void Entrenador::asignarRutina(Cliente &cliente, string nombreRutina, string obj
 
 string Entrenador::obtenerResumen() {
     return "Entrenador: " + nombre +
-           " | Especialidad: " + especialidad +
-           " | Experiencia: " + to_string(aniosExperiencia) + " anios";
+           "  Especialidad: " + especialidad +
+           "  Experiencia: " + to_string(aniosExperiencia) + " anios";
 }
 #endif //UNTITLED4_ENTRENADOR_H

@@ -25,7 +25,6 @@ public:
     void setEdad(int edad);
 
     int getId();
-    void setId(int id);
 
     virtual string obtenerResumen();
 };
@@ -53,10 +52,6 @@ void Persona::setEdad(int edad) {
 
 int Persona::getId() {
     return id;
-}
-
-void Persona::setId(int id) {
-    this->id = id;
 }
 
 string Persona::obtenerResumen() {

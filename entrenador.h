@@ -6,43 +6,61 @@
 #define UNTITLED4_ENTRENADOR_H
 #include "persona.h"
 #include "cliente.h"
-
-class Entrenador : public Persona{
-
+#include "rutina.h"
+class Entrenador : public Persona {
 private:
-
     string especialidad;
     int aniosExperiencia;
 
 public:
+    Entrenador();
+    Entrenador(string nombre, int edad, int id, string especialidad, int aniosExperiencia);
 
-    Entrenador()
-    : Persona(),
-      especialidad(""),
-      aniosExperiencia(0){}
+    string getEspecialidad();
+    void setEspecialidad(string especialidad);
 
-    Entrenador(string nom,int ed,int ident,
-               string esp,int anios)
+    int getAniosExperiencia();
+    void setAniosExperiencia(int aniosExperiencia);
 
-    : Persona(nom,ed,ident),
-      especialidad(esp),
-      aniosExperiencia(anios){}
+    void asignarRutina(Cliente &cliente, Rutina rutina);
+    void asignarRutina(Cliente &cliente, string nombreRutina, string objetivoRutina);
 
-    void asignarRutina(Cliente &cliente,
-                        Rutina rutina){
-
-        cliente.asignarRutina(rutina);
-
-    }
-
-    void mostrarDatos() override{
-
-        cout<<"Entrenador"<<endl;
-
-        cout<<"Nombre: "<<nombre<<endl;
-        cout<<"Especialidad: "<<especialidad<<endl;
-
-    }
-
+    string obtenerResumen() override;
 };
+
+Entrenador::Entrenador()
+    : Persona(), especialidad(""), aniosExperiencia(0) {}
+
+Entrenador::Entrenador(string nombre, int edad, int id, string especialidad, int aniosExperiencia)
+    : Persona(nombre, edad, id), especialidad(especialidad), aniosExperiencia(aniosExperiencia) {}
+
+string Entrenador::getEspecialidad() {
+    return especialidad;
+}
+
+void Entrenador::setEspecialidad(string especialidad) {
+    this->especialidad = especialidad;
+}
+
+int Entrenador::getAniosExperiencia() {
+    return aniosExperiencia;
+}
+
+void Entrenador::setAniosExperiencia(int aniosExperiencia) {
+    this->aniosExperiencia = aniosExperiencia;
+}
+
+void Entrenador::asignarRutina(Cliente &cliente, Rutina rutina) {
+    cliente.asignarRutina(rutina);
+}
+
+void Entrenador::asignarRutina(Cliente &cliente, string nombreRutina, string objetivoRutina) {
+    cliente.asignarRutina(nombreRutina, objetivoRutina);
+}
+
+string Entrenador::obtenerResumen() {
+    return "Entrenador: " + nombre +
+           "  Especialidad: " + especialidad +
+           "  Experiencia: " + to_string(aniosExperiencia) + " anios";
+}
 #endif //UNTITLED4_ENTRENADOR_H

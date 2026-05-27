@@ -1,7 +1,6 @@
 //
 // Created by munoz on 25/05/2026.
 //
-
 #ifndef UNTITLED4_RUTINA_H
 #define UNTITLED4_RUTINA_H
 #include <iostream>
@@ -19,16 +18,9 @@ public:
     Rutina(string nombre, string objetivo, int duracionMin, string dificultad);
 
     string getNombre();
-    void setNombre(string nombre);
-
     string getObjetivo();
-    void setObjetivo(string objetivo);
-
     int getDuracionMin();
-    void setDuracionMin(int duracionMin);
-
     string getDificultad();
-    void setDificultad(string dificultad);
 
     string obtenerDescripcion();
 };
@@ -43,32 +35,16 @@ string Rutina::getNombre() {
     return nombre;
 }
 
-void Rutina::setNombre(string nombre) {
-    this->nombre = nombre;
-}
-
 string Rutina::getObjetivo() {
     return objetivo;
-}
-
-void Rutina::setObjetivo(string objetivo) {
-    this->objetivo = objetivo;
 }
 
 int Rutina::getDuracionMin() {
     return duracionMin;
 }
 
-void Rutina::setDuracionMin(int duracionMin) {
-    this->duracionMin = duracionMin;
-}
-
 string Rutina::getDificultad() {
     return dificultad;
-}
-
-void Rutina::setDificultad(string dificultad) {
-    this->dificultad = dificultad;
 }
 
 string Rutina::obtenerDescripcion() {

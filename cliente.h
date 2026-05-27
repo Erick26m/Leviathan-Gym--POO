@@ -29,12 +29,6 @@ public:
     string getObjetivo();
     void setObjetivo(string objetivo);
 
-    Membresia getMembresia();
-    void setMembresia(Membresia membresia);
-
-    Rutina getRutina();
-    void setRutina(Rutina rutina);
-
     float calcularIMC();
 
     void asignarRutina(Rutina rutina);
@@ -73,22 +67,6 @@ void Cliente::setObjetivo(string objetivo) {
     this->objetivo = objetivo;
 }
 
-Membresia Cliente::getMembresia() {
-    return membresia;
-}
-
-void Cliente::setMembresia(Membresia membresia) {
-    this->membresia = membresia;
-}
-
-Rutina Cliente::getRutina() {
-    return rutina;
-}
-
-void Cliente::setRutina(Rutina rutina) {
-    this->rutina = rutina;
-}
-
 float Cliente::calcularIMC() {
     if (altura <= 0) {
         return 0;
@@ -107,9 +85,9 @@ void Cliente::asignarRutina(string nombreRutina, string objetivoRutina) {
 
 string Cliente::obtenerResumen() {
     return "Cliente: " + nombre +
-           "  Objetivo: " + objetivo +
-           "  IMC: " + to_string(calcularIMC()) +
-           "  Membresia: " + membresia.getTipo() +
-           "  Rutina: " + rutina.getNombre();
+           " | Objetivo: " + objetivo +
+           " | IMC: " + to_string(calcularIMC()) +
+           " | Membresia: " + membresia.getTipo() +
+           " | Rutina: " + rutina.getNombre();
 }
 #endif //UNTITLED4_CLIENTE_H

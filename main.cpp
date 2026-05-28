@@ -34,7 +34,7 @@ int main() {
 
     // Aqui aplico el polimorfismo:
     // utilizando un arreglo de punteros de la clase Persona.Aunque el arreglo pertenece a la clase madre,
-    // se almacenan objetos de clases hijas como Cliente yEntrenador
+    // se almacenan objetos de clases hijas como Cliente y Entrenador
     // Esto me permite trabajar con distintos tipos de objetos
     // utilizando una sola referencia. Después, mediante el
     // metodo virtual obtenerResumen(), el programa identifica

@@ -18,6 +18,9 @@ public:
     Persona();
     Persona(string nombre, int edad, int id);
 
+    // Destructor del virtual
+    virtual ~Persona() = default;
+
     string getNombre();
     void setNombre(string nombre);
 
@@ -26,10 +29,12 @@ public:
 
     int getId();
 
-    virtual string obtenerResumen();
+    // Metodo virtual
+    virtual string obtenerResumen() = 0;
 };
 
-Persona::Persona() : nombre(""), edad(0), id(0) {}
+Persona::Persona()
+    : nombre(""), edad(0), id(0) {}
 
 Persona::Persona(string nombre, int edad, int id)
     : nombre(nombre), edad(edad), id(id) {}
@@ -52,9 +57,5 @@ void Persona::setEdad(int edad) {
 
 int Persona::getId() {
     return id;
-}
-
-string Persona::obtenerResumen() {
-    return "Persona: " + nombre;
 }
 #endif //UNTITLED4_PERSONA_H

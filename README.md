@@ -7,8 +7,6 @@ La clase Cliente se relaciona con Membresia porque cada cliente debe contar con 
 <img width="734" height="697" alt="image" src="https://github.com/user-attachments/assets/cd6d4e51-6d13-4eca-992a-255a67bb3c79" />
 
 ## Funcionalidad
-## Descripción del Sistema
-
 El sistema Leviathan Gym está compuesto por 5 clases principales que mantienen relaciones claras entre sí: Persona, Cliente, Entrenador, Membresia y Rutina.
 
 La clase Persona funciona como una clase abstracta que contiene la información común de cualquier persona dentro del gimnasio, como nombre, edad e identificador. A partir de esta clase se derivan Cliente y Entrenador mediante herencia, permitiendo reutilizar atributos y comportamientos comunes.

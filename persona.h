@@ -12,13 +12,13 @@ class Persona {
 protected:
     string nombre;
     int edad;
-    int id;
+    string matricula;
 
 public:
     Persona();
-    Persona(string nombre, int edad, int id);
+    Persona(string nombre, int edad, string matricula);
 
-    // Destructor del virtual
+    // Destructor virtual para polimorfismo
     virtual ~Persona() = default;
 
     string getNombre();
@@ -27,17 +27,19 @@ public:
     int getEdad();
     void setEdad(int edad);
 
-    int getId();
+    string getMatricula();
 
-    // Metodo virtual
+    // Método virtual puro (Clase abstracta)
     virtual string obtenerResumen() = 0;
 };
 
-Persona::Persona()
-    : nombre(""), edad(0), id(0) {}
+// IMPLEMENTACIONES
 
-Persona::Persona(string nombre, int edad, int id)
-    : nombre(nombre), edad(edad), id(id) {}
+Persona::Persona()
+    : nombre(""), edad(0), matricula("") {}
+
+Persona::Persona(string nombre, int edad, string matricula)
+    : nombre(nombre), edad(edad), matricula(matricula) {}
 
 string Persona::getNombre() {
     return nombre;
@@ -55,7 +57,7 @@ void Persona::setEdad(int edad) {
     this->edad = edad;
 }
 
-int Persona::getId() {
-    return id;
+string Persona::getMatricula() {
+    return matricula;
 }
 #endif //UNTITLED4_PERSONA_H

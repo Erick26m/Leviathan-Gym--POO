@@ -1,56 +1,123 @@
-#include "cliente.h"
-#include "entrenador.h"
+#include "estudiante.h"
+#include "profesor.h"
 #include <iostream>
+#include "inscripcion.h"
+#include "curso.h"
+
 using namespace std;
 
 int main() {
-
-    Membresia mem1("Premium",850,30);
-
-    Rutina rutina1("Full Body",
-                     "Ganar musculo",
-                     60,
-                     "Media");
-
-    Cliente cliente1(
-        "Armando",
-        19,
-        101,
-        75.5,
-        1.75,
-        "Ganar musculo",
-        mem1
+    Inscripcion inscripcion1(
+        "Intensiva",
+        2500,
+        6
     );
 
-    Entrenador entrenador1(
+    Inscripcion inscripcion2(
+        "Regular",
+        1800,
+        4
+    );
+
+    Curso curso1(
+        "Ingles Intermedio",
+        "Mejorar conversacion",
+        80,
+        "B1"
+    );
+
+    Curso curso2(
+        "Frances Basico",
+        "Aprender fundamentos",
+        60,
+        "A1"
+    );
+
+    Curso curso3(
+        "Ingles Avanzado",
+        "Preparacion TOEFL",
+        100,
+        "B2"
+    );
+
+    Estudiante* estudiante1 = new Estudiante(
+        "Armando",
+        19,
+        "LH001",
+        95,
+        "B1",
+        "Certificacion TOEFL",
+        inscripcion1
+    );
+
+    Estudiante* estudiante2 = new Estudiante(
+        "Luis",
+        20,
+        "LH002",
+        88,
+        "A1",
+        "Aprender frances desde cero",
+        inscripcion2
+    );
+
+    Estudiante* estudiante3 = new Estudiante(
+        "David",
+        21,
+        "LH003",
+        92,
+        "B2",
+        "Intercambio academico",
+        inscripcion1
+    );
+
+    Profesor* profesor1 = new Profesor(
         "Erick",
         30,
-        201,
-        "Hipertrofia",
+        "P001",
+        "Ingles",
         5
     );
 
-    entrenador1.asignarRutina(cliente1,rutina1);
+    profesor1->asignarCurso(*estudiante1, curso1);
+    profesor1->asignarCurso(*estudiante2, curso2);
 
-    // Aqui aplico el polimorfismo:
-    // utilizando un arreglo de punteros de la clase Persona.Aunque el arreglo pertenece a la clase madre,
-    // se almacenan objetos de clases hijas como Cliente y Entrenador
-    // Esto me permite trabajar con distintos tipos de objetos
-    // utilizando una sola referencia. Después, mediante el
-    // metodo virtual obtenerResumen(), el programa identifica
-    // automáticamente el tipo real de cada objeto y ejecuta el metodo correspondiente.
-    // Por ejemplo, cuando el objeto almacenado es un Cliente,
-    // se ejecuta Cliente::obtenerResumen(), y cuando el objeto
-    // es un Entrenador, se ejecuta Entrenador::obtenerResumen().
-    Persona* personas[2];
+    // Sobrecarga de metodo:
+    // Aqui se asigna un curso usando solo nombre y objetivo,
+    // no un objeto Curso completo.
+    profesor1->asignarCurso(
+        *estudiante3,
+        "Curso de conversacion avanzada",
+        "Mejorar fluidez oral"
+    );
 
-    personas[0] = &cliente1;
-    personas[1] = &entrenador1;
+    // Aplicacion de polimorfismo:
+    // Se crea un arreglo de apuntadores de tipo Persona.
+    // Aunque Persona es la clase madre abstracta, el arreglo guarda
+    // objetos de clases hijas: Estudiante y Profesor.
+    // Gracias al metodo virtual puro obtenerResumen(),
+    // se ejecuta la version correspondiente segun el tipo real del objeto.
 
-    for(int i=0;i<2;i++){
+    Persona* personas[4];
 
-        cout<<personas[i]->obtenerResumen()<<endl;
+    personas[0] = estudiante1;
+    personas[1] = estudiante2;
+    personas[2] = estudiante3;
+    personas[3] = profesor1;
 
+    cout << "Prepa UCO" << endl;
+    cout << endl;
+
+    for(int i = 0; i < 4; i++) {
+        cout << personas[i]->obtenerResumen() << endl;
+    }
+
+    // Liberacion de memoria:
+    // Como se usaron apuntadores con new, se eliminan con delete.
+    // El destructor virtual en Persona permite destruir correctamente
+    // los objetos de las clases hijas.
+
+    for(int i = 0; i < 4; i++) {
+        delete personas[i];
     }
 
     return 0;

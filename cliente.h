@@ -2,92 +2,109 @@
 // Created by munoz on 25/05/2026.
 //
 
-#ifndef UNTITLED4_CLIENTE_H
-#define UNTITLED4_CLIENTE_H
+#ifndef UNTITLED4_ESTUDIANTE_H
+#define UNTITLED4_ESTUDIANTE_H
+#include <string>
 #include "persona.h"
-#include "membresia.h"
-#include "rutina.h"
+#include "inscripcion.h"
+#include "curso.h"
+using namespace std;
 
-class Cliente : public Persona {
+class Estudiante : public Persona {
 private:
-    float peso;
-    float altura;
-    string objetivo;
-    Membresia membresia;
-    Rutina rutina;
+    float promedio;
+    string nivel;
+    string metaAcademica;
+
+    Inscripcion inscripcion;
+    Curso curso;
 
 public:
-    Cliente();
-    Cliente(string nombre, int edad, int id, float peso, float altura, string objetivo, Membresia membresia);
+    Estudiante();
 
-    float getPeso();
-    void setPeso(float peso);
+    Estudiante(string nombre, int edad, string matricula, float promedio,
+               string nivel, string metaAcademica, Inscripcion inscripcion);
 
-    float getAltura();
-    void setAltura(float altura);
+    ~Estudiante() override = default;
 
-    string getObjetivo();
-    void setObjetivo(string objetivo);
+    float getPromedio();
+    void setPromedio(float promedio);
 
-    float calcularIMC();
+    string getNivel();
+    void setNivel(string nivel);
 
-    void asignarRutina(Rutina rutina);
-    void asignarRutina(string nombreRutina, string objetivoRutina);
+    string getMetaAcademica();
+    void setMetaAcademica(string metaAcademica);
+
+    float calcularPromedio();
+
+    void asignarCurso(Curso curso);
+
+    // Sobrecarga de metodo
+    void asignarCurso(string nombreCurso, string objetivoCurso);
 
     string obtenerResumen() override;
 };
 
-Cliente::Cliente()
-    : Persona(), peso(0), altura(0), objetivo("") {}
+// IMPLEMENTACIONES
 
-Cliente::Cliente(string nombre, int edad, int id, float peso, float altura, string objetivo, Membresia membresia)
-    : Persona(nombre, edad, id), peso(peso), altura(altura), objetivo(objetivo), membresia(membresia) {}
+Estudiante::Estudiante()
+    : Persona(),
+      promedio(0),
+      nivel("Sin nivel"),
+      metaAcademica("Sin meta academica") {}
 
-float Cliente::getPeso() {
-    return peso;
+Estudiante::Estudiante(string nombre, int edad, string matricula, float promedio,
+                       string nivel, string metaAcademica, Inscripcion inscripcion)
+    : Persona(nombre, edad, matricula),
+      promedio(promedio),
+      nivel(nivel),
+      metaAcademica(metaAcademica),
+      inscripcion(inscripcion) {}
+
+float Estudiante::getPromedio() {
+    return promedio;
 }
 
-void Cliente::setPeso(float peso) {
-    this->peso = peso;
+void Estudiante::setPromedio(float promedio) {
+    this->promedio = promedio;
 }
 
-float Cliente::getAltura() {
-    return altura;
+string Estudiante::getNivel() {
+    return nivel;
 }
 
-void Cliente::setAltura(float altura) {
-    this->altura = altura;
+void Estudiante::setNivel(string nivel) {
+    this->nivel = nivel;
 }
 
-string Cliente::getObjetivo() {
-    return objetivo;
+string Estudiante::getMetaAcademica() {
+    return metaAcademica;
 }
 
-void Cliente::setObjetivo(string objetivo) {
-    this->objetivo = objetivo;
+void Estudiante::setMetaAcademica(string metaAcademica) {
+    this->metaAcademica = metaAcademica;
 }
 
-float Cliente::calcularIMC() {
-    if (altura <= 0) {
-        return 0;
-    }
-
-    return peso / (altura * altura);
+float Estudiante::calcularPromedio() {
+    return promedio;
 }
 
-void Cliente::asignarRutina(Rutina rutina) {
-    this->rutina = rutina;
+void Estudiante::asignarCurso(Curso curso) {
+    this->curso = curso;
 }
 
-void Cliente::asignarRutina(string nombreRutina, string objetivoRutina) {
-    rutina = Rutina(nombreRutina, objetivoRutina, 45, "Media");
+void Estudiante::asignarCurso(string nombreCurso, string objetivoCurso) {
+    curso = Curso(nombreCurso, objetivoCurso, 80, nivel);
 }
 
-string Cliente::obtenerResumen() {
-    return "Cliente: " + nombre +
-           "  Objetivo: " + objetivo +
-           "  IMC: " + to_string(calcularIMC()) +
-           "  Membresia: " + membresia.getTipo() +
-           "  Rutina: " + rutina.getNombre();
+string Estudiante::obtenerResumen() {
+    return "Estudiante: " + nombre +
+           "  Matricula: " + matricula +
+           "  Nivel: " + nivel +
+           "  Promedio: " + to_string(calcularPromedio()) +
+           "  Meta academica: " + metaAcademica +
+           "  Inscripcion: " + inscripcion.getTipo() +
+           "  Curso: " + curso.getNombre();
 }
 #endif //UNTITLED4_CLIENTE_H

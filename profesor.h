@@ -55,12 +55,12 @@ public:
     int getAniosExperiencia() {
         return aniosExperiencia;
     }
-
+// Asigna un curso a un estudiante. Se usa & para modificar al estudiante original.
     void asignarCurso(Estudiante &estudiante, Curso curso) {
         estudiante.asignarCurso(curso);
     }
 
-    // Sobrecarga de metodo
+// Sobrecarga de método: permite asignar un curso sin crear primero un objeto Curso.
     void asignarCurso(Estudiante &estudiante, string nombreCurso, string objetivoCurso) {
         estudiante.asignarCurso(nombreCurso, objetivoCurso);
     }

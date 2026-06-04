@@ -34,8 +34,9 @@ public:
     string getTipo();
     float getCosto();
     int getDuracionMeses();
-
+// Regresa el costo de la inscripción del estudiante.
     float calcularCosto();
+// Genera una descripción en texto de la inscripción.
     string obtenerDescripcion();
 };
 

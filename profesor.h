@@ -60,7 +60,7 @@ public:
         estudiante.asignarCurso(curso);
     }
 
-// Sobrecarga de método: permite asignar un curso sin crear primero un objeto Curso.
+// Sobrecarga 
     void asignarCurso(Estudiante &estudiante, string nombreCurso, string objetivoCurso) {
         estudiante.asignarCurso(nombreCurso, objetivoCurso);
     }

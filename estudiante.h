@@ -51,11 +51,9 @@ public:
     string getMetaAcademica();
     void setMetaAcademica(string metaAcademica);
 
-    float calcularPromedio();
-// Asigna un curso completo al estudiante usando un objeto Curso.
     void asignarCurso(Curso curso);
 
-// Sobrecarga de método: asigna un curso usando solo nombre y objetivo.
+    // Sobrecarga de metodo
     void asignarCurso(string nombreCurso, string objetivoCurso);
 
     string obtenerResumen() override;
@@ -99,10 +97,6 @@ void Estudiante::setMetaAcademica(string metaAcademica) {
     this->metaAcademica = metaAcademica;
 }
 
-float Estudiante::calcularPromedio() {
-    return promedio;
-}
-
 void Estudiante::asignarCurso(Curso curso) {
     this->curso = curso;
 }
@@ -115,7 +109,7 @@ string Estudiante::obtenerResumen() {
     return "Estudiante: " + nombre +
            "  Matricula: " + matricula +
            "  Nivel: " + nivel +
-           "  Promedio: " + to_string(calcularPromedio()) +
+           "  Promedio: " + to_string(getPromedio()) +
            "  Meta academica: " + metaAcademica +
            "  Inscripcion: " + inscripcion.getTipo() +
            "  Curso: " + curso.getNombre();

@@ -1,7 +1,8 @@
 //
 // Created by munoz on 21/05/2026.
 //
-/* Clase Persona Esta clase funciona como la clase abstracta del proyecto.
+/* Clase Persona 
+Esta clase funciona como la clase abstracta del proyecto.
 Representa la información común que comparten los estudiantes y profesores de la academia, como el nombre, la edad y la matrícula.
 Relación con otras clases: 
 - Estudiante hereda de Persona.

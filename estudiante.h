@@ -1,20 +1,16 @@
 //
 // Created by munoz on 25/05/2026.
 //
-/*
-Clase Estudiante
-
-Esta clase representa a los alumnos inscritos en la academia.
-Hereda de Persona porque un estudiante también tiene nombre, edad y matrícula.
-
-Relación con otras clases:
-- Hereda de Persona.
-- Tiene una Inscripcion.
+/* Clase Estudiante Esta clase representa al estudiante registrado dentro de la academia.
+Hereda de la clase Persona, por lo que reutiliza atributos como nombre, edad y matrícula.
+Relación con otras clases: 
+- Hereda de Persona. 
+- Tiene una Inscripcion. 
 - Tiene un Curso asignado.
-- Puede recibir cursos asignados por un Profesor.
-
-Esta clase agrega información propia del estudiante, como promedio,
-nivel académico y meta académica.
+- Puede recibir un curso por medio de la clase Profesor.
+La clase almacena información propia del estudiante, como su promedio, su inscripción y el curso que se le asigna dentro del sistema. 
+También implementa el método obtenerResumen(), que viene de la clase Persona. 
+Esto permite que un Estudiante pueda ser tratado como Persona usando polimorfismo, pero mostrando su información específica como estudiante.
 */
 #include <string>
 #include "persona.h"

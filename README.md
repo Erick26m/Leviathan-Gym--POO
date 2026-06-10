@@ -25,14 +25,11 @@ La clase Inscripcion administra la información relacionada con el tipo de inscr
 La clase Curso representa los cursos ofrecidos por la academia. En ella se almacena información como el nombre del curso, objetivo, duración en horas y nivel. Esto permite organizar los cursos de acuerdo con el nivel y las metas académicas de los estudiantes.
 
 ## Consideraciones
-Casos donde el proyecto podría dejar de funcionar:
+Como el programa usa cin, los datos de texto deben escribirse sin espacios. En caso de necesitar varias palabras, se recomienda usar guion bajo.
 
-Registrar una persona con edad menor o igual a 0.
+También se consideran posibles casos donde el sistema podría generar resultados incorrectos:
 
-Registrar dos personas con la misma matrícula.
-
-Crear una inscripción con costo negativo.
-
-Crear una inscripción con duración menor o igual a 0.
-
-Asignar un curso inexistente a un estudiante.
+Ingresar datos numéricos en campos de texto o texto en campos numéricos.
+Registrar edades menores o iguales a cero.
+Elegir una opción de inscripción no válida.
+Intentar mostrar datos antes de registrarlos.
